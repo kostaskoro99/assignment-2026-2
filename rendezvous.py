@@ -9,3 +9,13 @@ class GraphNavigator:
         self.n = num_nodes
         self.adj = [[] for i in range(num_nodes)]
         self.is_directed = is_directed
+
+for u, v in edges:
+            bisect.insort(self.adj[u], v)
+            if not is_directed:
+                bisect.insort(self.adj[v], u)
+
+    def find_parity_meeting(self, start_a, start_b):
+        ""  Αναζήτηση σημείου συνάντησης (node, parity).
+        Επιστρέφει (node, time, path_a, path_b) ή None.
+        ""
