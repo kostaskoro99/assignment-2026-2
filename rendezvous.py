@@ -24,3 +24,15 @@ for u, v in edges:
             dist_map = {}
             queue = deque([(start_node, 0, 0)]) # node, parity, distance
             dist_map[(start_node, 0)] = (0, [start_node])
+while queue:
+                u, p, d = queue.popleft()
+                for v in self.adj[u]:
+                    new_p = 1 - p
+                    if (v, new_p) not in dist_map:
+                        new_path = dist_map[(u, p)][1] + [v]
+                        dist_map[(v, new_p)] = (d + 1, new_path)
+                        queue.append((v, new_p, d + 1))
+            return dist_map
+
+        map_a = get_bfs_map(start_a)
+        map_b = get_bfs_map(start_b)
