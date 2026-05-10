@@ -19,3 +19,8 @@ for u, v in edges:
         ""  Αναζήτηση σημείου συνάντησης (node, parity).
         Επιστρέφει (node, time, path_a, path_b) ή None.
         ""
+   # bfs_data[node][parity] = dist 
+            def get_bfs_map(start_node):
+            dist_map = {}
+            queue = deque([(start_node, 0, 0)]) # node, parity, distance
+            dist_map[(start_node, 0)] = (0, [start_node])
