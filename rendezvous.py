@@ -36,7 +36,7 @@ while queue:
 
         map_a = get_bfs_map(start_a)
         map_b = get_bfs_map(start_b)
- best_meeting = None
+        best_meeting = None
         min_time = float('inf')
 
         for node in range(self.n):
