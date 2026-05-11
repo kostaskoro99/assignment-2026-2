@@ -65,3 +65,4 @@ while queue:
                             queue.append(v)
                         elif color[v] == color[u]:
                             return False, None
+                            return True, color
