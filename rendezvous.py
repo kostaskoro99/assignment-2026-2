@@ -42,3 +42,26 @@ while queue:
         for node in range(self.n):
             for p in [0, 1]:
                 if (node, p) in map_a and (node, p) in map_b:
+                    time_a, path_a = map_a[(node, p)]
+                    time_b, path_b = map_b[(node, p)]
+                    if time_a == time_b:
+                        if time_a < min_time:
+                            min_time = time_a
+                            best_meeting = (node, time_a, path_a, path_b)
+        return best_meeting
+
+    def is_bipartite(self):
+        """Ελέγχει αν ο γράφος είναι διμερής και επιστρέφει τα σύνολα (color map)."""
+        color = {}
+        for i in range(self.n):
+            if i not in color:
+                queue = deque([i])
+                color[i] = 0
+                while queue:
+                    u = queue.popleft()
+                    for v in self.adj[u]:
+                        if v not in color:
+                            color[v] = 1 - color[u]
+                            queue.append(v)
+                        elif color[v] == color[u]:
+                            return False, None
