@@ -73,6 +73,7 @@ def print_history(path_a, path_b, node, time):
      print(f"Meeting at node {node} at time step {time}")
   
 def main():
+    print("--- Program Started ---") 
      # Διαχείριση παραμέτρων: [-d] filename
     args = sys.argv[1:]
     is_directed = "-d" in args
@@ -83,3 +84,5 @@ def main():
         return
     
     filename = args[0]   
+    print(f"--- Looking for file: {filename} ---") 
+ 
