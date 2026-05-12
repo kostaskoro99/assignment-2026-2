@@ -86,3 +86,14 @@ def main():
     filename = args[0]   
     print(f"--- Looking for file: {filename} ---") 
  
+    try:
+        with open(filename, 'r') as f:
+            lines = [line.split() for line in f if line.strip()]
+        
+        if not lines: 
+            print("The file is empty!")
+            return
+        
+        print(f"--- File loaded. Found {len(lines)} lines ---") 
+        
+        
