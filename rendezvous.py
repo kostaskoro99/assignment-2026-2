@@ -66,16 +66,4 @@ while queue:
                         elif color[v] == color[u]:
                             return False, None
                             return True, color
- def solve_state_space(self, start_a, start_b):
-        """BFS στο καρτεσιανό γινόμενο των θέσεων (Alice, Bob)."""
-        queue = deque([(start_a, start_b, 0, [(start_a, start_b)])])
-        visited = set([(start_a, start_b)])
-        
-        while queue:
-            curr_a, curr_b, dist, history = queue.popleft()
-            if curr_a == curr_b:
-                return curr_a, dist, history
- for next_a in self.adj[curr_a]:
-                for next_b in self.adj[curr_b]:
-                    if (next_a, next_b) not in visited:
-                        visited.add((next_a, next_b))
+
