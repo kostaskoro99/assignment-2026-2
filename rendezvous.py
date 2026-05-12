@@ -67,3 +67,8 @@ while queue:
                             return False, None
                             return True, color
 
+def print_history(path_a, path_b, node, time):
+    for t in range(len(path_a)):    
+     print(f"{t}: Alice at {path_a[t]}, Bob at {path_b[t]}")
+     print(f"Meeting at node {node} at time step {time}")
+  
