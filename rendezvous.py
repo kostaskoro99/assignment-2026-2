@@ -72,3 +72,14 @@ def print_history(path_a, path_b, node, time):
      print(f"{t}: Alice at {path_a[t]}, Bob at {path_b[t]}")
      print(f"Meeting at node {node} at time step {time}")
   
+def main():
+     # Διαχείριση παραμέτρων: [-d] filename
+    args = sys.argv[1:]
+    is_directed = "-d" in args
+    if is_directed: args.remove("-d")
+
+    if not args:
+        print("Usage: python script.py <graph_file.txt>")
+        return
+    
+    filename = args[0]   
