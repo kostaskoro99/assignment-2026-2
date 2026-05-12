@@ -75,3 +75,7 @@ while queue:
             curr_a, curr_b, dist, history = queue.popleft()
             if curr_a == curr_b:
                 return curr_a, dist, history
+ for next_a in self.adj[curr_a]:
+                for next_b in self.adj[curr_b]:
+                    if (next_a, next_b) not in visited:
+                        visited.add((next_a, next_b))
