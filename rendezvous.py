@@ -157,3 +157,11 @@ def main():
                         else:
                              
                               pass
+                              
+    except FileNotFoundError:
+        print(f"Error: The file '{filename}' was not found.")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+
+if __name__ == "__main__":
+  main()
