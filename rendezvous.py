@@ -76,8 +76,10 @@ def main():
     print("--- Program Started ---") 
      # Διαχείριση παραμέτρων: [-d] filename
     args = sys.argv[1:]
-    is_directed = "-d" in args
-    if is_directed: args.remove("-d")
+    is_directed = False 
+    if "-d" in args:
+        is_directed = True
+        args.remove("-d") 
 
     if not args:
         print("Usage: python script.py <graph_file.txt>")
