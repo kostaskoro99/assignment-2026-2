@@ -82,7 +82,7 @@ def main():
         args.remove("-d") 
 
     if not args:
-        print("Usage: python script.py <graph_file.txt>")
+        print("Usage: python rendezvous.py <graph_file.txt>")
         return
     
     filename = args[0]   
