@@ -98,4 +98,15 @@ def main():
         
         print(f"--- File loaded. Found {len(lines)} lines ---") 
         
+        # 1η γραμμή: Κόμβοι και Ακμές
+        num_nodes, num_edges = map(int, lines[0])
         
+        # Τελευταία γραμμή: Alice και Bob
+        start_a, start_b = map(int, lines[-1])
+        
+        # Ενδιάμεσες γραμμές: Ακμές
+        edges = [map(int, lines[i]) for i in range(1, num_edges + 1)]
+        
+        gn = GraphNavigator(num_nodes, edges, is_directed)
+        
+        result = gn.find_parity_meeting(start_a, start_b)
