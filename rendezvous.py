@@ -110,3 +110,17 @@ def main():
         gn = GraphNavigator(num_nodes, edges, is_directed)
         
         result = gn.find_parity_meeting(start_a, start_b)
+
+        if result:
+            node, time, path_a, path_b = result
+            print_history(path_a, path_b, node, time)
+            
+        else:
+            print("No meeting is possible")
+            
+        if not is_directed: # Λογική για μη κατευθυνόμενους (προσθήκη ακμής)
+            bipartite, colors = gn.is_bipartite()
+            
+            # Αν ο γράφος είναι διμερής και είναι σε διαφορετικά σύνολα, προσθέτουμε ακμή
+            if bipartite and colors[start_a] != colors[start_b]:
+                print("Adding 1 edge")
