@@ -124,3 +124,36 @@ def main():
             # Αν ο γράφος είναι διμερής και είναι σε διαφορετικά σύνολα, προσθέτουμε ακμή
             if bipartite and colors[start_a] != colors[start_b]:
                 print("Adding 1 edge")
+                
+                # Εύρεση συντομότερου μονοπατιού για την τροποποίηση
+                queue = deque([(start_a, [start_a])])
+                visited = {start_a}
+                path_to_b = []
+                while queue:
+                    curr, path = queue.popleft()
+                    if curr == start_b:
+                        path_to_b = path
+                        break
+                    for neighbor in gn.adj[curr]:
+                        if neighbor not in visited:
+                            visited.add(neighbor)
+                            queue.append((neighbor, path + [neighbor]))
+                
+                if path_to_b:
+                    m_idx = len(path_to_b) // 2
+                    u = path_to_b[m_idx]
+                    # Προσθήκη ακμής για αλλαγή αρτιότητας
+                    prev_u = path_to_b[m_idx - 2] if m_idx >= 2 else path_to_b[0]
+                    
+                    if prev_u != u:
+                        print(f"Adding {prev_u} {u}")
+                        bisect.insort(gn.adj[prev_u], u)
+                        bisect.insort(gn.adj[u], prev_u)
+                        
+                        # Επανεκτέλεση αναζήτησης μετά την προσθήκη
+                        res2 = gn.find_parity_meeting(start_a, start_b)
+                        if res2:
+                            print_history(res2[2], res2[3], res2[0], res2[1]) 
+                        else:
+                             
+                              pass
