@@ -1,5 +1,5 @@
 # assignment-2026-2
-# !!! το history της προοδου μου βρισκεται στο patch-1 branch !!!
+# !!! ΤΟ HISTORY ΤΗΣ ΠΡΟΟΔΟΥ ΜΟΥ ΒΡΙΣΚΕΤΑΙ ΣΤΟ "patch-1" BRANCH !!!
 import sys
 from collections import deque
 import bisect
