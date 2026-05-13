@@ -10,7 +10,7 @@ class GraphNavigator:
         self.adj = [[] for i in range(num_nodes)]
         self.is_directed = is_directed
 
-for u, v in edges:
+        for u, v in edges:
             bisect.insort(self.adj[u], v)
             if not is_directed:
                 bisect.insort(self.adj[v], u)
@@ -19,12 +19,12 @@ for u, v in edges:
         ""  Αναζήτηση σημείου συνάντησης (node, parity).
         Επιστρέφει (node, time, path_a, path_b) ή None.
         ""
-   # bfs_data[node][parity] = dist 
-            def get_bfs_map(start_node):
+        # bfs_data[node][parity] = dist 
+        def get_bfs_map(start_node):
             dist_map = {}
             queue = deque([(start_node, 0, 0)]) # node, parity, distance
             dist_map[(start_node, 0)] = (0, [start_node])
-while queue:
+            while queue:
                 u, p, d = queue.popleft()
                 for v in self.adj[u]:
                     new_p = 1 - p
